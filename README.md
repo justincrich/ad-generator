@@ -13,6 +13,8 @@ The Ad Generator is built using Next.js API routes, while the frontend provides 
 3. `src/lib/schema.ts`: Defines the data schemas used throughout the application.
 4. `src/app/page.tsx`: Implements the main user interface for inputting URLs and displaying generated ad content.
 
+<img src="./public/screen.png" width="500px" height="400px" style="object-fit: cover;" />
+
 ### Key Features
 
 - Web page content extraction
