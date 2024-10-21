@@ -2,7 +2,7 @@ import { aiOperations } from "@/_server/ai/operations";
 import { getWebpageContent } from "@/lib/htmlScraping";
 import { NextResponse } from "next/server";
 import { z } from "zod";
-import { Ad, AdCopy, AdCreative } from "../../../lib/schema";
+import { Ad } from "../../../lib/schema";
 
 const MAX_VARIANT_COUNT = 10;
 

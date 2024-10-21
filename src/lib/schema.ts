@@ -56,7 +56,7 @@ export const AdCopySchema = z.object({
 export type AdCopy = z.infer<typeof AdCopySchema>;
 
 export const AdSchema = z.object({
-  adName: z.string().max(255),
+  name: z.string().max(255),
   headline: z.string().max(70),
   description: z.string().max(200),
   destinationUrl: z.string().url(),

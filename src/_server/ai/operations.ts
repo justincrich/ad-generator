@@ -1,5 +1,4 @@
 import {
-  WebPageInsights,
   zodToCamelCasedJsonSchema,
   AdSchema,
   AdCopySchema,
@@ -229,51 +228,6 @@ You are a marketing expert who needs to classify products from a company's websi
     if (!output) return null;
     try {
       const data = JSON.parse(output);
-      return data;
-    } catch (e) {
-      console.log("Error parsing JSON", e);
-      return null;
-    }
-  },
-  generateAdPitches: async (args: {
-    insights: WebPageInsights;
-    variationCount: number;
-  }) => {
-    const PITCH_PROMPT = `
-    Write compelling B2B ad copy using the following guidelines and information:
-
-        Company Details:
-            ${COMPANY_DETAILS_PROMPT}
-    
-     Generate ${args.variationCount} pitches for digital ads based on the company's information.
-     
-     OUTPUT:
-     - wrap your output in tags <output></output>
-     - you should return a JSON document of an array of ${args.variationCount} strings
-    `;
-    const result = await claude.messages.create({
-      model: "claude-3-haiku-20240307",
-      messages: [
-        {
-          role: "user",
-          content: PITCH_PROMPT,
-        },
-      ],
-      max_tokens: 1000,
-      temperature: 1,
-    });
-
-    const content =
-      result.content[0].type === "text" ? result.content[0].text : "";
-
-    const [output] = extractTagContents(content, "output");
-    if (!output) return null;
-    try {
-      const data = JSON.parse(output);
-      if (!Array.isArray(data)) {
-        console.log("Data is not an array", data);
-        return null;
-      }
       return data;
     } catch (e) {
       console.log("Error parsing JSON", e);
